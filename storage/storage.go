@@ -19,7 +19,8 @@ func NewPostgresDB() {
 
 		var err error
 
-		db, err = sql.Open("postgres", "postgres://postgres:admin@localhost:5432/apicf?sslmode=disable")
+		// db, err = sql.Open("postgres", "postgres://postgres:admin@localhost:5432/apicf?sslmode=disable")
+		db, err = sql.Open("postgres", "postgres://benji:benji@localhost:5432/base_test?sslmode=disable")
 		if err != nil {
 			log.Fatalf("Can´t open db: %v", err)
 		}
@@ -27,7 +28,7 @@ func NewPostgresDB() {
 		if err = db.Ping(); err != nil {
 			log.Fatalf("Can´t do ping: %v", err)
 		}
-		fmt.Printf("Conectado a postgres")
+		fmt.Println("Conectado a postgres")
 	})
 }
 
